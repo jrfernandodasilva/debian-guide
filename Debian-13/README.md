@@ -76,8 +76,8 @@ Baixar e configurar **Vivid-Dark-Icons**, a partir do link de Download no reposi
 
 2. **Baixar arquivos**:
    - Acesse [https://www.pling.com/p/2110196](https://www.pling.com/p/2110196) e baixe os arquivos: 
-      - Vivid-Dark-Icons
-      - Vivid Wallpaper
+      - [Vivid-Dark-Icons](https://www.pling.com/p/2110189)
+      - [Vivid Wallpaper](https://www.pling.com/p/2110165)
 
 3. **Descomprimir arquivos**:
    ```bash
