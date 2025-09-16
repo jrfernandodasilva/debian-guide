@@ -67,23 +67,19 @@ See [NVIDIA-DRIVER-INSTALLATION.md](https://github.com/jrfernandodasilva/debian-
 
 ### 4. Icon Theme
 
-Baixar e configurar **Vivid-Dark-Icons** do repositório [Vivid-Plasma-Themes](https://github.com/L4ki/Vivid-Plasma-Themes)
+Baixar e configurar **Vivid-Dark-Icons**, a partir do link de Download no repositório [Vivid-Plasma-Themes](https://github.com/L4ki/Vivid-Plasma-Themes)
 
-1. **Baixar repositório**:
-   ```bash
-   cd ~/Downloads
-   git clone https://github.com/L4ki/Vivid-Plasma-Themes.git
-   cd Vivid-Plasma-Themes
-   ```
-
-2. **Criar pasta de ícones**:
+1. **Criar pasta de ícones**:
    ```bash
    mkdir -p ~/.icons
    ```
 
-3. **Copiar ícones**:
+2. **Baixar arquivos**:
+   - Acesse [https://www.pling.com/p/2110196](https://www.pling.com/p/2110196) e baixe o arquivo `Vivid-Dark-Icons`.
+
+3. **Descomprimir arquivos**:
    ```bash
-   cp -r "Vivid Icons Themes/Vivid-Dark-Icons" ~/.icons/
+   tar -xzvf ~/Downloads/Vivid-Dark-Icons.tar.gz -C ~/.icons
    ```
 
 4. **Configurar ícones**:
