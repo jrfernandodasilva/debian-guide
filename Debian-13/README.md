@@ -38,14 +38,14 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 Timeshift creates system snapshots for easy restoration on Debian 13 "Trixie".
 
-## Installation
+### Installation
 Install Timeshift:
 
 ```bash
 sudo apt install timeshift
 ```
 
-## Configuration
+### Configuration
 1. Launch Timeshift:
    ```bash
    timeshift-gtk
@@ -55,14 +55,14 @@ sudo apt install timeshift
    - Backup location: External drive or separate partition.
    - Schedule: Daily, weekly, or manual snapshots.
 
-## Creating a Snapshot
+### Creating a Snapshot
 Create a manual snapshot:
 
 ```bash
 sudo timeshift --create --comments "Pre-update backup"
 ```
 
-## Restoring a Snapshot
+### Restoring a Snapshot
 Restore a snapshot via GUI or CLI:
 - **GUI**: Run `timeshift-gtk`, select a snapshot, and restore.
 - **CLI**:
@@ -71,14 +71,14 @@ Restore a snapshot via GUI or CLI:
    ```
    Follow prompts to select the snapshot.
 
-## Verification
+### Verification
 List snapshots to verify:
 
 ```bash
 sudo timeshift --list
 ```
 
-## Notes
+### Notes
 - Store snapshots on an external drive for safety.
 - Exclude user data for faster system backups.
 
