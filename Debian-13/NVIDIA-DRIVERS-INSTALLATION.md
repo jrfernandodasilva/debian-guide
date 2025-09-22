@@ -105,7 +105,7 @@ sudo apt install nvidia-open-kernel-dkms nvidia-driver firmware-misc-nonfree
 Check if the NVIDIA module was compiled successfully:
 
 ```bash
-dkms status
+sudo dkms status
 ```
 
 Expected output:
