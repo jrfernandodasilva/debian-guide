@@ -34,6 +34,54 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 "| sudo tee /etc/apt/sources.list.d/debian.sources > /dev/null && sudo apt update && apt list --upgradable && sudo apt upgrade
 ```
 
+## 3. Install Timeshift for System Backups
+
+Timeshift creates system snapshots for easy restoration on Debian 13 "Trixie".
+
+## Installation
+Install Timeshift:
+
+```bash
+sudo apt install timeshift
+```
+
+## Configuration
+1. Launch Timeshift:
+   ```bash
+   timeshift-gtk
+   ```
+2. Follow the wizard to select:
+   - Snapshot type: **RSYNC** (recommended).
+   - Backup location: External drive or separate partition.
+   - Schedule: Daily, weekly, or manual snapshots.
+
+## Creating a Snapshot
+Create a manual snapshot:
+
+```bash
+sudo timeshift --create --comments "Pre-update backup"
+```
+
+## Restoring a Snapshot
+Restore a snapshot via GUI or CLI:
+- **GUI**: Run `timeshift-gtk`, select a snapshot, and restore.
+- **CLI**:
+   ```bash
+   sudo timeshift --restore
+   ```
+   Follow prompts to select the snapshot.
+
+## Verification
+List snapshots to verify:
+
+```bash
+sudo timeshift --list
+```
+
+## Notes
+- Store snapshots on an external drive for safety.
+- Exclude user data for faster system backups.
+
 ## 3. Install NVIDIA driver
 See [NVIDIA-DRIVER-INSTALLATION.md](https://github.com/jrfernandodasilva/debian-guide/blob/main/Debian-13/NVIDIA-DRIVERS-INSTALLATION.md) document instructions.
 
