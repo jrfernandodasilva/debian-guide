@@ -35,7 +35,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
 
 ## 3. Install NVIDIA driver
-See [NVIDIA-DRIVER-INSTALLATION.md](https://github.com/jrfernandodasilva/debian-guide/blob/main/Debian-13/NVIDIA-DRIVER-INSTALLATION.md) document instructions.
+See [NVIDIA-DRIVER-INSTALLATION.md](https://github.com/jrfernandodasilva/debian-guide/blob/main/Debian-13/NVIDIA-DRIVERS-INSTALLATION.md) document instructions.
 
 ## 4. Atualizar Firefox ESR
 
