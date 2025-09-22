@@ -82,10 +82,10 @@ sudo timeshift --list
 - Store snapshots on an external drive for safety.
 - Exclude user data for faster system backups.
 
-## 3. Install NVIDIA driver
+## 4. Install NVIDIA driver
 See [NVIDIA-DRIVER-INSTALLATION.md](https://github.com/jrfernandodasilva/debian-guide/blob/main/Debian-13/NVIDIA-DRIVERS-INSTALLATION.md) document instructions.
 
-## 4. Atualizar Firefox ESR
+## 5. Atualizar Firefox ESR
 
 1. **Baixar o Firefox ESR**  
    Acesse [https://www.firefox.com/pt-BR/download/all/desktop-esr/](https://www.firefox.com/pt-BR/download/all/desktop-esr/), selecione "Português (Brasil)" e baixe o arquivo `.tar.bz2` para Linux 64 bits.
@@ -113,7 +113,7 @@ See [NVIDIA-DRIVER-INSTALLATION.md](https://github.com/jrfernandodasilva/debian-
    firefox-esr --version
    ```
 
-### 4. Icon Theme
+### 6. Icon Theme
 
 Baixar e configurar **Vivid-Dark-Icons**, a partir do link de Download no repositório [Vivid-Plasma-Themes](https://github.com/L4ki/Vivid-Plasma-Themes)
 
