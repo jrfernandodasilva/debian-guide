@@ -94,7 +94,7 @@ See [NVIDIA-DRIVER-INSTALLATION.md](https://github.com/jrfernandodasilva/debian-
    Extraia o arquivo e substitua a pasta `/lib/firefox-esr`:  
    ```sh
    cd ~/Downloads
-   tar -xjf firefox-*.tar.bz2
+   tar -xJf firefox-*.tar.xz
    sudo rm -rf /lib/firefox-esr
    sudo mv firefox /lib/firefox-esr
    ```
