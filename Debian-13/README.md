@@ -113,30 +113,85 @@ See [NVIDIA-DRIVER-INSTALLATION.md](https://github.com/jrfernandodasilva/debian-
    firefox-esr --version
    ```
 
-### 6. Icon Theme
+## 6. Icon Theme and Background Customization
 
-Baixar e configurar **Vivid-Dark-Icons**, a partir do link de Download no repositório [Vivid-Plasma-Themes](https://github.com/L4ki/Vivid-Plasma-Themes)
+Customize your GNOME desktop with the **Vivid-Dark-Icons** theme and wallpapers.
 
-1. **Criar pasta de ícones**:
+### Install Vivid-Dark-Icons
+1. **Create icons directory**:
    ```bash
    mkdir -p ~/.icons
    ```
 
-2. **Baixar arquivos**:
-   - Acesse [https://www.pling.com/p/2110196](https://www.pling.com/p/2110196) e baixe os arquivos: 
-      - [Vivid-Dark-Icons](https://www.pling.com/p/2110189)
-      - [Vivid Wallpaper](https://www.pling.com/p/2110165)
+2. **Download files**:
+   - Visit [https://www.pling.com/p/2110196](https://www.pling.com/p/2110196) and download:
+     - [Vivid-Dark-Icons](https://www.pling.com/p/2110189)
+     - [Vivid Wallpaper](https://www.pling.com/p/2110165)
 
-3. **Descomprimir arquivos**:
+3. **Extract files**:
    ```bash
    tar -xzvf ~/Downloads/Vivid-Dark-Icons.tar.gz -C ~/.icons
    ```
 
-4. **Configurar ícones**:
-   - Abra **GNOME Tweaks** (`gnome-tweaks`).
-   - Em **Aparência** > **Ícones**, selecione **Vivid-Dark-Icons**.
+4. **Update icon cache**:
+   ```bash
+   gtk-update-icon-cache -f -t ~/.icons/Vivid-Dark-Icons/
+   ```
 
-5. **Configurar plano de fundo**:
-   - Abra **Configurações** (`gnome-control-center`).
-   - Em **Aparência** > **Plano de Fundo**, clique em **Adicionar Imagem**.
-   - Escolha uma imagem da pasta `Vivid Wallpapers` e aplique.
+5. **Set icon theme**:
+   - Open **GNOME Tweaks** (`gnome-tweaks`).
+   - In **Appearance** > **Icons**, select **Vivid-Dark-Icons**.
+
+### Customize Application Icons
+Customize icons for specific GNOME applications:
+
+- **Nautilus**:
+   ```bash
+   cp /usr/share/applications/org.gnome.Nautilus.desktop ~/.local/share/applications/
+   sed -i 's|Icon=org.gnome.Nautilus|Icon=user-home.svg|g' ~/.local/share/applications/org.gnome.Nautilus.desktop
+   ```
+
+- **Firefox ESR**:
+   ```bash
+   cp /usr/share/applications/firefox-esr.desktop ~/.local/share/applications/
+   sed -i 's|Icon=firefox-esr|Icon=firefox|g' ~/.local/share/applications/firefox-esr.desktop
+   ```
+
+- **GNOME Terminal**:
+   ```bash
+   cp /usr/share/applications/org.gnome.Terminal.desktop ~/.local/share/applications/
+   sed -i 's|Icon=org.gnome.Terminal|Icon=Terminal.svg|g' ~/.local/share/applications/org.gnome.Terminal.desktop
+   ```
+
+- **Evolution Mail**:
+   ```bash
+   cp /usr/share/applications/org.gnome.Evolution.desktop ~/.local/share/applications/
+   sed -i 's|Icon=evolution|Icon=kube-mail.svg|g' ~/.local/share/applications/org.gnome.Evolution.desktop
+   ```
+
+- **GNOME Software**:
+   ```bash
+   cp /usr/share/applications/org.gnome.Software.desktop ~/.local/share/applications/
+   sed -i 's|Icon=org.gnome.Software|Icon=yast-software-group.svg|g' ~/.local/share/applications/org.gnome.Software.desktop
+   ```
+
+### Create and Customize ~/Apps Folder
+1. **Create the folder**:
+   ```bash
+   mkdir -p ~/Apps
+   ```
+
+2. **Set custom icon**:
+   ```bash
+   gio set ~/Apps -t string metadata::custom-icon file://$HOME/.icons/Vivid-Dark-Icons/places/32/folder-script.svg
+   ```
+
+### Download GNOME Backgrounds
+1. **Download additional backgrounds**:
+   - Visit [https://zebreus.github.io/all-gnome-backgrounds](https://zebreus.github.io/all-gnome-backgrounds).
+   - Download desired wallpapers (e.g., Amber or others).
+
+2. **Set GNOME background**:
+   - Open **Settings** (`gnome-control-center`).
+   - In **Appearance** > **Background**, click **Add Picture**.
+   - Select a downloaded GNOME background image and apply.
