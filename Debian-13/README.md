@@ -195,3 +195,6 @@ Customize icons for specific GNOME applications:
    - Open **Settings** (`gnome-control-center`).
    - In **Appearance** > **Background**, click **Add Picture**.
    - Select a downloaded GNOME background image and apply.
+
+## 7. Git
+See [Git Settings and Essential Commands](https://github.com/jrfernandodasilva/debian-guide/blob/main/Tips/Git.md) document instructions.
