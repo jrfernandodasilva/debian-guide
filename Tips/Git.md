@@ -20,6 +20,11 @@ git config --global user.name "FIRST_NAME LAST_NAME"
 git config --global user.email "my_email@example.com"
 ```
 
+### Configure Global default branch name
+```bash
+git config --global init.defaultBranch main
+```
+
 ### Enable Automatic Color Output
 Enable colorized output for better readability of Git commands.
 
