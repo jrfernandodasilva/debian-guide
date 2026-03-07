@@ -196,5 +196,49 @@ Customize icons for specific GNOME applications:
    - In **Appearance** > **Background**, click **Add Picture**.
    - Select a downloaded GNOME background image and apply.
 
-## 7. Git
+## 7. Install programs
+```bash
+sudo apt install -y terminator htop xclip snapd chromium flameshot pngquant curl wget tree deluge btop
+```
+
+### 7.1 Terminator Themes
+See instructions: https://github.com/EliverLara/terminator-themes
+
+### 7.2 Gnome extension manager + extensions
+Install Extension Manager:
+```bash
+sudo apt install gnome-shell-extension-manager
+```
+Open Extension Manager -> Browser. <br/>
+Search and install:
+- Blur my Shell
+- Clipboard Indicator
+- Coverflow Alt-Tab
+- GNOME Fuzzy App Search
+- Forge
+- AppIndicator and KStatusNotifierItem Support
+- Media Controls
+- Dash to Dock  # similar OSx apps bar
+    - Hide the dock in overview # can combine with "Dash to Dock" extension
+- Dash to Panel # similar Windows system bar
+    - App Icons Taskbar # can combine with "Dash to Panel" extension
+    - ArcMenu # can combine with "Dash to Panel" extension
+- V-Shell (Vertial Workspaces)
+- User Themes
+  > Download themes from Gnome Look, like: https://www.gnome-look.org/p/1687249 and follow install instructions <br/>
+  > Dracula Theme for GTK full instructions: https://draculatheme.com/gtk
+- Search Light 
+  > _needs: sudo apt install imagemagick_
+
+> Videos with extensions configs: <br/>
+> https://www.youtube.com/watch?v=IedxEbwpjfs <br/>
+> https://www.youtube.com/watch?v=AE1-W2bMVEs
+
+## 8. Install VPN Plugin
+```bash
+sudo apt install openvpn
+sudo apt install network-manager-openvpn
+```
+
+## 9. Git
 See [Git Settings and Essential Commands](https://github.com/jrfernandodasilva/debian-guide/blob/main/Tips/Git.md) document instructions.
