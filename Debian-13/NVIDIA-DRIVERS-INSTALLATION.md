@@ -156,6 +156,8 @@ sudo dpkg-reconfigure nvidia-kernel-dkms
 sudo reboot
 ```
 
+- See [NVIDIA Driver Troubleshooting](NVIDIA-DRIVERS-TROUBLESHOOTING.md) for common issues.
+
 ---
 
 ## Notes
