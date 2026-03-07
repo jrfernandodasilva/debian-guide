@@ -47,7 +47,7 @@ Este guia descreve os passos para instalar os drivers proprietários mais recent
 7. **Instalar pacotes necessários**  
    Instale os pacotes essenciais para compilação e suporte aos drivers:  
    ```sh
-   apt install build-essential linux-headers-amd64 dkms
+   apt install build-essential linux-headers-$(uname -r) dkms
    ```
 
 8. **Instalar os drivers NVIDIA**  
