@@ -198,7 +198,7 @@ Customize icons for specific GNOME applications:
 
 ## 7. Install programs
 ```bash
-sudo apt install -y terminator htop xclip snapd chromium flameshot pngquant curl wget tree deluge btop
+sudo apt install -y terminator htop xclip snapd chromium flameshot pngquant curl wget tree deluge btop rfkill fastfetch
 ```
 
 ### 7.1 Terminator Themes
@@ -242,3 +242,20 @@ sudo apt install network-manager-openvpn
 
 ## 9. Git
 See [Git Settings and Essential Commands](https://github.com/jrfernandodasilva/debian-guide/blob/main/Tips/Git.md) document instructions.
+
+## 10. Enable syntax highlighting in nano
+```bash
+find /usr/share/nano/ -iname "*.nanorc" -exec echo include {} \; >> ~/.nanorc
+```
+
+## 11. Complementary softwares
+- Docker + Docker Compose - [Install instructions](https://docs.docker.com/engine/install/debian/#set-up-the-repository) - [Post install instructions](https://docs.docker.com/engine/install/linux-postinstall/)
+- Lazy Docker - [https://github.com/jesseduffield/lazydocker](https://github.com/jesseduffield/lazydocker)
+- VSCode - [Download page](https://code.visualstudio.com/download)
+- Discord - [Download page](https://discord.com/download)
+- Chrome - [Home to download](https://www.google.com/intl/pt-BR/chrome/)
+- MySQL Workbench via snapd - [2 ways to Install Mysql Workbench](https://linux.how2shout.com/2-ways-to-install-mysql-workbench-on-debian-11-bullseye-linux/#5_To_Uninstall_run)
+- Pinta via snapd - [Install Pinta on Debian](https://snapcraft.io/install/pinta/debian)
+- Postman via snapd - [Install Postman on Debian](https://snapcraft.io/install/postman/debian)
+- kubectl - [Install and Set Up kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux)
+- Spotify - [Spotify for Linux](https://www.spotify.com/de-en/download/linux)
