@@ -260,7 +260,9 @@ find /usr/share/nano/ -iname "*.nanorc" -exec echo include {} \; >> ~/.nanorc
 - kubectl - [Install and Set Up kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux)
 - Spotify - [Spotify for Linux](https://www.spotify.com/de-en/download/linux)
 - ZSH, Oh My ZSH and Starship - [Install Guide](https://github.com/jrfernandodasilva/debian-guide/blob/main/Tips/ZSH-and-Oh-My-Zsh.md)
-
+- Gemini CLI - [Docs - Installation](https://github.com/google-gemini/gemini-cli)
+- Claude Code - [Docs - Native Install](https://code.claude.com/docs/en/overview)
+- `uv`for run local serena mcp - [Installing uv](https://docs.astral.sh/uv/getting-started/installation)
 
 ### 11.1 Install bash-completion
 ```bash
