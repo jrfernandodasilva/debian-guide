@@ -66,3 +66,64 @@ sudo reboot
 ```
 
 > **Note**: Always install kernel headers using `$(uname -r)` rather than the `linux-headers-amd64` metapackage. The metapackage targets the latest available version in the repository, which may differ from the running kernel.
+
+---
+
+### Persistent Kernel Crashes with Proprietary NVIDIA Driver (Dell G15 / Optimus)
+
+**Applies to**: Dell G15 5530 (RTX 3050) and similar Optimus laptops running the proprietary `nvidia-kernel-dkms` driver on Debian 13
+
+#### Symptoms
+- System freezes intermittently — at the login screen, shortly after login, or after a few minutes of use
+- Kernel log shows crash originating from the NVIDIA ACPI handler:
+  ```
+  rm_acpi_notify+0x123/0x280 [nvidia]
+  acpi_ev_notify_dispatch
+  ```
+- Cascading effects: RCU stalls, CPU soft lockups, USB subsystem failures
+- Bluetooth may stop working as a side effect (USB timeout errors)
+
+#### Root Cause
+The proprietary NVIDIA kernel module (driver 550) has a bug in its ACPI event handler (`rm_acpi_notify`) that causes a kernel page fault on certain Dell laptops. The crash destabilizes the entire kernel, including the USB subsystem — which explains why Bluetooth (connected via USB internally) also fails.
+
+Confirm the crash signature:
+```bash
+sudo journalctl -b -1 | grep -A 10 "BUG: unable" | grep -E "rm_acpi_notify|acpi_ev_notify"
+```
+
+#### Fix: Switch to the NVIDIA Open Kernel Module
+
+NVIDIA's open-source kernel module (`nvidia-open-kernel-dkms`) rewrites the ACPI handling and resolves this crash. It is fully supported for the RTX 3050 and later GPUs.
+
+```bash
+sudo apt install nvidia-open-kernel-dkms
+sudo apt remove nvidia-kernel-dkms nvidia-kernel-support
+sudo update-initramfs -u
+sudo reboot
+```
+
+After rebooting, update `/etc/modprobe.d/nvidia.conf` to reference the open module names. Replace occurrences of `nvidia-current` with `nvidia-current-open`:
+
+```bash
+sudo sed -i \
+  's/modprobe -i nvidia-current /modprobe -i nvidia-current-open /g; s/nvidia-current-modeset/nvidia-current-open-modeset/g; s/nvidia-current-drm/nvidia-current-open-drm/g; s/nvidia-current-uvm/nvidia-current-open-uvm/g; s/nvidia-current-peermem/nvidia-current-open-peermem/g' \
+  /etc/modprobe.d/nvidia.conf
+sudo update-initramfs -u
+sudo reboot
+```
+
+#### Verification
+
+```bash
+lsmod | grep nvidia   # nvidia module should be ~10MB, not ~60MB
+nvidia-smi
+sudo journalctl -b 0 | grep -c "rm_acpi_notify"  # should return 0
+```
+
+#### Cleanup
+
+Remove the DKMS entry for any old kernel version no longer in use:
+```bash
+sudo dkms status   # identify outdated entries
+sudo dkms remove nvidia-current-open/<version> -k <old-kernel-version>
+```
