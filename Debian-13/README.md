@@ -259,3 +259,10 @@ find /usr/share/nano/ -iname "*.nanorc" -exec echo include {} \; >> ~/.nanorc
 - Postman via snapd - [Install Postman on Debian](https://snapcraft.io/install/postman/debian)
 - kubectl - [Install and Set Up kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux)
 - Spotify - [Spotify for Linux](https://www.spotify.com/de-en/download/linux)
+- ZSH, Oh My ZSH and Starship - [Install Guide](https://github.com/jrfernandodasilva/debian-guide/blob/main/Tips/ZSH-and-Oh-My-Zsh.md)
+
+
+### 11.1 Install bash-completion
+```bash
+sudo apt install bash-completion
+```
