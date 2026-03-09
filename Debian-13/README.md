@@ -266,3 +266,107 @@ find /usr/share/nano/ -iname "*.nanorc" -exec echo include {} \; >> ~/.nanorc
 ```bash
 sudo apt install bash-completion
 ```
+
+#### Permanently enable
+##### To bash:
+```bash
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+source ~/.bashrc
+```
+
+##### To Zsh:
+```bash
+echo "source <(kubectl completion zsh)" >> ~/.bashrc
+source ~/.zshrc
+```
+
+## 12. Configure snap apps to show in xorg (If Necessary)
+```bash
+sudo ln -s /etc/profile.d/apps-bin-path.sh /etc/X11/Xsession.d/99snap
+sudo nano /etc/login.defs
+
+# Paste the following at the end of the file and save:
+ENV_PATH PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+```
+
+## 13. Install nvm
+
+See repository instructions to install: [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+
+## 14. Chrome Flags
+Access chrome flags with this url [chrome://flags/](chrome://flags/) and enable this:
+- GPU rasterization
+- Overscroll history navigation
+- Preferred Ozone platform (set `Wayland`)
+![image](https://github.com/jrfernandodasilva/debian-guide/assets/27747005/077bdec7-3bc2-41cd-96d5-df7f6a06df30)
+
+Run this commant to force enable `Overscroll history navigation`:
+```bash
+sudo sed -ie 's/Exec=\/usr\/bin\/google-chrome-stable %U/Exec=\/usr\/bin\/google-chrome-stable %U --enable-features=TouchpadOverscrollHistoryNavigation/g' /usr/share/applications/google-chrome.desktop
+```
+> then restart Chrome browser to enable this config
+
+## 15. Bash Aliases
+
+Follow the instructions in [this repository](https://github.com/jrfernandodasilva/bash-aliases)
+
+## 16. Emby
+
+[See instructions here](https://emby.media/linux-server.html)
+
+After install, run this command to add your system user to emby group:
+```sh
+sudo usermod -aG emby $USER 
+```
+
+## 17. Zram
+[See instructions here](https://linuxdicasesuporte.blogspot.com/2022/03/zram-no-debian-gnu-linux-e-derivados.html) or [here](https://fosspost.org/enable-zram-on-linux-better-system-performance/)
+
+## 18. Youtube Download (`yt-dlp`)
+
+Download and install from [official repository](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation)
+
+The `yt-dlp` is an advanced CLI tool based on youtube-dl that allows you to download videos and audio from various platforms. Here are some useful combinations of options available:
+
+#### Download Videos
+1. **Specific quality:**
+    - `-f bestvideo+bestaudio/best`: Downloads the best available video and audio, or the best combined format if the former is not available.
+    - `-f 720p`: Downloads video in 720p, if available.
+
+2. **Extract audio:**
+    - `--extract-audio --audio-format mp3`: Extracts audio in MP3 format.
+    - `--audio-quality 0`: Sets the audio quality (0 is the best quality).
+
+3. **Playlist:**
+    - `--yes-playlist`: Downloads all videos in the playlist.
+    - `--playlist-start 10 --playlist-end 20`: Downloads videos from a specific position.
+
+#### Output Settings
+4. **Output Templates**:
+    - `-o "%(title)s.%(ext)s"`: Sets the file name to the video title.
+    - `-o "~/Downloads/%(uploader)s/%(title)s.%(ext)s"`: Saves files organized in folders based on the channel name.
+
+5. **Prevent Duplicate Downloads**:
+    - `--download-archive archive.txt`: Creates an archive to track previously downloaded videos and avoid duplication.
+
+#### Integrations and Control
+
+6. **Cookies and authentication**:
+    - `--cookies-from-browser chrome`: Uses browser cookies to access restricted content.
+    - `--username USER --password PASS`: Direct authentication.
+
+7. **Video part manipulation (SponsorBlock)**:
+    - `--sponsorblock-mark intro`: Marks intros using chapters.
+    - `--sponsorblock-remove sponsor`: Removes specific parts as sponsors.
+
+8. **Error resolution**:
+    - `--ignore-errors`: Ignores errors and continues downloading.
+    - `--retries infinite`: Retries downloading infinitely if there are failures.
+
+These are just a few options. The `yt-dlp` offers a lot of flexibility and is highly configurable. <br/> 
+For more details, you can refer to the [official documentation](https://github.com/yt-dlp/yt-dlp) and [related gists​](https://gist.github.com)
+
+> Usage Example
+> ```sh
+> yt-dlp --audio-quality 0 --extract-audio --audio-format mp3 https://youtu.be/xxxxxx
+> ```
