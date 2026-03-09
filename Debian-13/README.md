@@ -198,7 +198,7 @@ Customize icons for specific GNOME applications:
 
 ## 7. Install programs
 ```bash
-sudo apt install -y terminator htop xclip snapd chromium flameshot pngquant curl wget tree deluge btop rfkill fastfetch
+sudo apt install -y terminator htop xclip snapd chromium flameshot pngquant curl wget tree deluge btop rfkill fastfetch ffmpeg
 ```
 
 ### 7.1 Terminator Themes
