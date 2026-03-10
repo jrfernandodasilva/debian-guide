@@ -156,7 +156,7 @@ sudo dpkg-reconfigure nvidia-kernel-dkms
 sudo reboot
 ```
 
-- See [NVIDIA Driver Troubleshooting](NVIDIA-DRIVERS-TROUBLESHOOTING.md) for common issues.
+- See [Nvidia Driver Troubleshooting](https://github.com/jrfernandodasilva/debian-guide/blob/main/Debian-13/Troubleshootings/Nvidia%20Drivers%20Troubleshooting%20-%20Debian%20Trixie.md) for common issues.
 
 ---
 
