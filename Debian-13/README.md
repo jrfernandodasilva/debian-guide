@@ -263,6 +263,7 @@ find /usr/share/nano/ -iname "*.nanorc" -exec echo include {} \; >> ~/.nanorc
 - Gemini CLI - [Docs - Installation](https://github.com/google-gemini/gemini-cli)
 - Claude Code - [Docs - Native Install](https://code.claude.com/docs/en/overview)
 - `uv`for run local serena mcp - [Installing uv](https://docs.astral.sh/uv/getting-started/installation)
+- Github CLI (`gh`) - [Install Guide](https://github.com/cli/cli?tab=readme-ov-file#installation)
 
 ### 11.1 Install bash-completion
 ```bash
